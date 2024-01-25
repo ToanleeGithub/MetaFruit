@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Luckiest Guy", cursive;
+  scroll-behavior: smooth;
+}
+body {
+  background: #1a232e;
+}
+.gradient-01 {
+  background-image: linear-gradient(
+    270deg,
+    hsl(295deg 76% 51%) 0%,
+    hsl(284deg 70% 73%) 26%,
+    hsl(257deg 70% 86%) 39%,
+    hsl(202deg 92% 90%) 50%,
+    hsl(215deg 77% 81%) 61%,
+    hsl(221deg 73% 70%) 74%,
+    hsl(220deg 76% 51%) 100%
+  );
+  filter: blur(125px);
+}
+
+.hero-gradient {
+  background: linear-gradient(97.86deg, #a509ff 0%, #34acc7 53.65%, #a134c7 100%);
+}
+
+.gradient-02 {
+  background-color: rgb(4, 0, 255);
+  filter: blur(700px);
+}
+
+@layer components {
+  .innerWidth {
+    @apply 2xl:max-w-[1280px] w-full mx-auto;
+  }
+
+  .paddings {
+    @apply sm:p-16 px-6 py-12;
+  }
+
+  .yPaddings {
+    @apply py-16 py-12;
+  }
+
+  .xPaddings {
+    @apply sm:px-16 px-6;
+  }
+
+  .topPaddings {
+    @apply sm:pt-16 pt-12;
+  }
+
+  .bottomPaddinsg {
+    @apply sm:pb-16 pb-12;
+  }
+
+  .flexCenter {
+    @apply flex justify-center items-center;
+  }
+
+  .flexStart {
+    @apply flex justify-start items-start;
+  }
+
+  .flexEnd {
+    @apply flex justify-end;
+  }
+
+  .heroHeading {
+    @apply uppercase text-white lg:text-[144px] md:text-[100px] sm:text-[60px] text-[44px] lg:leading-[158.4px] md:leading-[115px] sm:leading-[72px] leading-[62px];
+  }
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-b from-[#edefff] to-[#99ebff];
+  }
+  .gradient-text2 {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[#eab308] to-[#ffffff];
+  }
+}
+.connectButton {
+  background-color: #0dffc2 !important ;
+  border-radius: 20px !important;
+  box-shadow: 0px 0px 20px 2px rgba(100, 230, 250, 0.7) !important;
+  color: #000 !important;
+  cursor: pointer !important;
+  font-size: 100% !important;
+  height: 44px !important;
+  padding: 30px 50px !important;
+  position: relative !important;
+  text-align: center !important;
+  transition: all 0.25s !important;
+}
+.connectButton:hover {
+  box-shadow: 0px 0px 40px 5px rgba(100, 230, 250, 0.7) !important;
+  transform: translateY(-2px) !important;
+}
+
+.plantButton {
+  padding: 0 !important;
+  background-color: #0dffc2 !important;
+  border: 1px solid #0dffc2 !important;
+  transition: all 0.25s !important;
+}
+.plantButton:hover {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.unPlantButton {
+  padding: 0 !important;
+  max-width: 100px !important;
+  background-color: #ff7a0d !important;
+  border: 1px solid #ff7a0d !important;
+  transition: all 0.25s !important;
+}
+.unPlantButton:hover {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+.claimButton {
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: space-evenly !important;
+  max-width: 100px !important;
+  background-color: #fff !important;
+  border: 1px solid #fff !important;
+  transition: all 0.25s !important;
+}
+.claimButton:hover {
+  background-color: transparent !important;
+  color: white !important;
+}
+
+@keyframes glowing-border {
+  0% {
+    box-shadow: 0 0 5px 2px rgba(238, 255, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 200px 10px rgba(238, 255, 0, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 5px 2px rgba(238, 255, 0, 0.7);
+  }
+}
+
+.buttonBuyShop {
+  animation: glowing-border 2s infinite;
+}
+
+.buttonBuyShop:hover {
+  background-color: transparent;
+  color: #fff;
+}

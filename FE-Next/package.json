@@ -1,0 +1,32 @@
+{
+  "name": "project2-metafarming",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export",
+    "deploy": "next build && next export && npx thirdweb@latest upload out"
+  },
+  "dependencies": {
+    "@thirdweb-dev/react": "^4",
+    "@thirdweb-dev/sdk": "^4",
+    "axios": "^1.6.6",
+    "crypto": "^1.0.1",
+    "ethers": "^5",
+    "framer-motion": "^11.0.2",
+    "next": "^13",
+    "react": "^18.2",
+    "react-dom": "^18.2",
+    "react-icons": "^5.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "eslint": "8.11.0",
+    "eslint-config-next": "^13",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
+  }
+}
