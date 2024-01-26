@@ -1,7 +1,7 @@
 "use client";
 import axios from "axios";
 import crypto from "crypto";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AppLayout, Bag, Farm } from "../components";
 import { CiBag1 } from "react-icons/ci";
 import { GiConsoleController, GiFarmTractor } from "react-icons/gi";
@@ -19,8 +19,25 @@ import { FARMER_ADDRESS } from "../addresses";
 const app = () => {
   const [choose, setChoose] = useState("bag");
   const [code, setCode] = useState("");
+  const [refCode, setRefCode] = useState("");
 
   const address = useAddress();
+
+  useEffect(() => {
+    const fetData = async () => {
+      try {
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/takerefcode`, {
+          address,
+        });
+        setRefCode(response.data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+
+    fetData();
+  }, [address]);
+
   const { contract: farmerContract } = useContract(FARMER_ADDRESS);
 
   const { data: metadata } = useMetadata(farmerContract);
@@ -32,7 +49,7 @@ const app = () => {
   const handleSuccess = async (result, code) => {
     try {
       const refCode = crypto.randomBytes(5).toString("hex").slice(0, 5);
-      await axios.post("http://localhost:3001/name", {
+      await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/name`, {
         result,
         refCode,
         inviteCode: code,
@@ -76,7 +93,7 @@ const app = () => {
             value={code}
             onChange={(e) => setCode(e.target.value)}
             placeholder="Your Code"
-            className="px-4 py-2"
+            className="px-4 py-2 font-mono"
           />
           <Web3Button
             contractAddress={FARMER_ADDRESS}
@@ -103,6 +120,10 @@ const app = () => {
               height="100%"
               className="rounded-[20px]"
             />
+            <p className="text-lg text-white">
+              REFCODE:{" "}
+              <span className="text-2xl text-yellow-500 font-mono font-bold">{refCode}</span>
+            </p>
           </div>
         )}
 

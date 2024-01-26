@@ -10,12 +10,11 @@ const leaderboard = () => {
   const address = useAddress();
   const [data, setData] = useState(null);
   const [name, setName] = useState("");
-  console.log(name);
 
   useEffect(() => {
     const fetData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/leaderboard");
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/leaderboard`);
         setData(response.data);
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -27,7 +26,10 @@ const leaderboard = () => {
 
   const handleChangeName = async () => {
     try {
-      const response = await axios.post("http://localhost:3001/changename", { address, name });
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/changeName`, {
+        address,
+        name,
+      });
       alert(response.data.message);
       setName("");
     } catch (error) {

@@ -16,7 +16,7 @@ db();
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "http://143.198.99.232:3000"],
   })
 );
 app.use(express.json());
@@ -109,6 +109,19 @@ app.post("/changename", async (req, res) => {
     await user.save();
 
     res.json({ message: "Name has changed" });
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+app.post("/takerefcode", async (req, res) => {
+  try {
+    const { address } = req.body;
+
+    const user = await model.userModel.findOne({ address });
+    if (!user) return;
+
+    res.json(user.refCode);
   } catch (error) {
     console.error(error);
   }

@@ -15,7 +15,7 @@ const NFT = ({ nft }) => {
 
   const handleSuccess = async (result) => {
     try {
-      await axios.post("http://localhost:3001/mintNFT", { result });
+      await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/mintNFT`, { result });
     } catch (error) {
       console.log(error);
     }
