@@ -12,7 +12,7 @@ const leaderboard = () => {
   const [name, setName] = useState("");
 
   useEffect(() => {
-    const fetData = async () => {
+    const fetchData = async () => {
       try {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/leaderboard`);
         setData(response.data);
@@ -21,9 +21,10 @@ const leaderboard = () => {
       }
     };
 
-    fetData();
+    fetchData();
+    const intervalId = setInterval(fetchData, 15000);
+    return () => clearInterval(intervalId);
   }, []);
-
   const handleChangeName = async () => {
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/changeName`, {
