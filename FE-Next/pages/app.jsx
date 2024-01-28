@@ -1,6 +1,5 @@
 "use client";
 import axios from "axios";
-import crypto from "crypto";
 import { useState, useEffect } from "react";
 import { AppLayout, Bag, Farm } from "../components";
 import { CiBag1 } from "react-icons/ci";
@@ -19,7 +18,8 @@ import Image from "next/image";
 
 const App = () => {
   const [choose, setChoose] = useState("bag");
-  const [code, setCode] = useState("fsdf");
+  const [code, setCode] = useState("");
+
   const [refCode, setRefCode] = useState("");
 
   const address = useAddress();
@@ -49,17 +49,10 @@ const App = () => {
 
   const handleSuccess = async (result, code) => {
     try {
-      const refCode = crypto.randomBytes(5).toString("hex").slice(0, 6);
       await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/name`, {
         result,
-        refCode,
         inviteCode: code,
       });
-
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/takerefcode`, {
-        address,
-      });
-      setRefCode(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -88,7 +81,7 @@ const App = () => {
       <AppLayout>
         <div className="flex flex-col justify-center items-center h-[100%] gap-5">
           <MediaRenderer
-            src={metadata.image}
+            src={metadata?.image}
             alt="NFT Farmer"
             width="300px"
             height="300px"

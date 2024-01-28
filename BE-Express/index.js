@@ -3,6 +3,7 @@ const app = express();
 const port = 3001;
 const model = require("./model");
 const cors = require("cors");
+const crypto = require("crypto");
 
 const db = require("./connectDB");
 const Web3 = require("web3");
@@ -28,13 +29,25 @@ app.get("/", (req, res) => {
 
 app.post("/name", async (req, res) => {
   try {
-    const { result, refCode, inviteCode } = req.body;
+    const { result, inviteCode } = req.body;
     const address = result.receipt.from;
+    let refCode;
+    let isUnique = false;
+
+    while (!isUnique) {
+      refCode = crypto.randomBytes(6).toString("hex").slice(0, 6);
+      const existingUser = await model.userModel.findOne({ refCode });
+      if (!existingUser) {
+        isUnique = true;
+      }
+    }
+
     await model.userModel.create({ address, refCode, inviteCode });
 
     console.log("register success");
   } catch (error) {
     console.log(error);
+    res.status(500).send("Server error");
   }
 });
 
