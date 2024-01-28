@@ -15,7 +15,13 @@ const Navbar = () => {
     >
       <div className="absolute w-1/2 inset-0 gradient-01"></div>
       <div className="innerWidth flex justify-between items-center">
-        <Image src="/fruittoken3.webp" width={50} height={50} className="rounded-[10px]" />
+        <Image
+          src="/fruittoken3.webp"
+          width={50}
+          height={50}
+          className="rounded-[10px]"
+          alt="fruit"
+        />
 
         <div>
           <h1 className="md:text-[24px] text-[16px] text-white">CRYPTO GAME</h1>

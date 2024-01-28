@@ -4,7 +4,7 @@ import { FRUIT_ADDRESS } from "../addresses";
 import { useContract, useNFTs } from "@thirdweb-dev/react";
 import { NFT } from "../components";
 
-const shop = () => {
+const Shop = () => {
   const { data: fruitContract } = useContract(FRUIT_ADDRESS);
   const { data: fruitNFTs } = useNFTs(fruitContract);
   return (
@@ -18,4 +18,4 @@ const shop = () => {
   );
 };
 
-export default shop;
+export default Shop;

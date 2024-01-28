@@ -20,10 +20,9 @@ const Hero = () => {
 
         <motion.div variants={slideIn("right", "tween", 0.2, 1)} className="w-full relative mt-2">
           <div className="absolute w-full h-[300px] hero-gradient -top-[30px] rounded-tl-[40px] z-[-1]" />
-          <img
-            src="/fruitcover.webp"
-            className="w-full sm:h-[500px] h-[350px] object-cover rounded-tl-[40px]"
-          />
+          <div className="relative w-full sm:h-[500px] h-[350px] rounded-tl-[40px] overflow-hidden">
+            <Image src="/fruitcover.webp" alt="Fruit cover" layout="fill" objectFit="cover" />
+          </div>
         </motion.div>
       </motion.div>
     </section>

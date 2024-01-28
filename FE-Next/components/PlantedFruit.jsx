@@ -24,14 +24,15 @@ const PlantedFruit = ({ tokenId }) => {
   );
 
   useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       refetchStakeInfo();
     }, 5000);
-  }, []);
+    return () => clearInterval(interval);
+  }, [refetchStakeInfo]);
 
   return (
     <div>
-      {fruitNFT && (
+      {fruitNFT && claimableRewards && (
         <div className="relative flex flex-col gap-2">
           <MediaRenderer
             src={fruitNFT.metadata.image}

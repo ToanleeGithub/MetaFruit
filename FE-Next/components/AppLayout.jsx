@@ -6,6 +6,7 @@ import { IoAppsSharp } from "react-icons/io5";
 import { AiOutlineShop } from "react-icons/ai";
 import { MdLeaderboard } from "react-icons/md";
 import { GiFruitBowl } from "react-icons/gi";
+import Image from "next/image";
 
 const AppLayout = ({ children }) => {
   return (
@@ -17,7 +18,7 @@ const AppLayout = ({ children }) => {
         className="innerWidth flex justify-between items-center"
       >
         <Link href="/">
-          <img
+          <Image
             src="/fruittoken3.webp"
             alt="logo"
             width={70}

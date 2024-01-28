@@ -15,8 +15,9 @@ import {
   Web3Button,
 } from "@thirdweb-dev/react";
 import { FARMER_ADDRESS } from "../addresses";
+import Image from "next/image";
 
-const app = () => {
+const App = () => {
   const [choose, setChoose] = useState("bag");
   const [code, setCode] = useState("");
   const [refCode, setRefCode] = useState("");
@@ -72,7 +73,7 @@ const app = () => {
     return (
       <AppLayout>
         <div className="flex justify-center items-center h-[100%]">
-          <img src="/loader.svg" alt="Loading" />
+          <Image src="/loader.svg" alt="Loading" width={100} height={100} />
         </div>
       </AppLayout>
     );
@@ -153,4 +154,4 @@ const app = () => {
   );
 };
 
-export default app;
+export default App;

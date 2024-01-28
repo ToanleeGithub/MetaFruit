@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { startingFeatures } from "../constants";
 import { TypingText, TitleText, StartSteps } from ".";
 import { staggerContainer, fadeIn, planetVariants } from "../utils/motion";
+import Image from "next/image";
 
 const GetStarted = () => {
   return (
@@ -15,10 +16,12 @@ const GetStarted = () => {
         className="innerWidth flex lg:flex-row flex-col gap-8"
       >
         <motion.div variants={planetVariants("left")} className={`flex-1 flexCenter`}>
-          <img
+          <Image
             src="/fruittoken2.png"
             alt="get-started"
-            className="w-[350px] h-[350px] object-cover rounded-full"
+            width={350}
+            height={350}
+            className="object-cover rounded-full"
           />
         </motion.div>
 

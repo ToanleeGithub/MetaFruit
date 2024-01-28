@@ -5,7 +5,7 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 import { ImPower } from "react-icons/im";
 import { useAddress } from "@thirdweb-dev/react";
 
-const leaderboard = () => {
+const Leaderboard = () => {
   const address = useAddress();
   const [data, setData] = useState(null);
   const [name, setName] = useState("");
@@ -74,4 +74,4 @@ const leaderboard = () => {
   );
 };
 
-export default leaderboard;
+export default Leaderboard;
