@@ -1,13 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { slideIn, starggerContainer, textVariant } from "../utils/motion";
+import { slideIn, staggerContainer, textVariant } from "../utils/motion";
 import Image from "next/image";
 
 const Hero = () => {
   return (
     <section className="paddings">
       <motion.div
-        variants={starggerContainer}
+        variants={staggerContainer}
         initial="hidden"
         whileInView="show"
         className="innerWidth flexCenter flex-col"
