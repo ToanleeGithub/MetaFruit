@@ -4,7 +4,7 @@ import crypto from "crypto";
 import { useState, useEffect } from "react";
 import { AppLayout, Bag, Farm } from "../components";
 import { CiBag1 } from "react-icons/ci";
-import { GiConsoleController, GiFarmTractor } from "react-icons/gi";
+import { GiFarmTractor } from "react-icons/gi";
 import {
   useAddress,
   ConnectWallet,
@@ -19,7 +19,7 @@ import Image from "next/image";
 
 const App = () => {
   const [choose, setChoose] = useState("bag");
-  const [code, setCode] = useState("");
+  const [code, setCode] = useState("fsdf");
   const [refCode, setRefCode] = useState("");
 
   const address = useAddress();
@@ -49,7 +49,7 @@ const App = () => {
 
   const handleSuccess = async (result, code) => {
     try {
-      const refCode = crypto.randomBytes(5).toString("hex").slice(0, 5);
+      const refCode = crypto.randomBytes(5).toString("hex").slice(0, 6);
       await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/name`, {
         result,
         refCode,

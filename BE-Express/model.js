@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
   },
   nickName: {
     type: String,
-    unique: true,
+    default: "NO NAME",
     trim: true,
   },
   refCode: {
@@ -20,7 +20,6 @@ const userSchema = new mongoose.Schema({
   inviteCode: {
     type: String,
     default: "a",
-    unique: true,
     trim: true,
   },
   tokenFromRef: {
