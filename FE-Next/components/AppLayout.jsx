@@ -27,7 +27,7 @@ const AppLayout = ({ children }) => {
         </Link>
 
         <div className="flex items-center gap-5">
-          <h1 className=" text-[30px] gradient-text2">WELCOME</h1>
+          <h1 className="md:block hidden text-[30px] gradient-text2">WELCOME</h1>
           <GiFruitBowl className="text-3xl text-white" />
         </div>
 
@@ -49,7 +49,7 @@ const AppLayout = ({ children }) => {
           </Link>
         </div>
 
-        <div className=" w-full pl-10">{children}</div>
+        <div className=" w-full sm:pl-10 pl-1">{children}</div>
       </div>
     </div>
   );

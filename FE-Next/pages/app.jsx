@@ -109,16 +109,16 @@ const app = () => {
 
   return (
     <AppLayout>
-      <div className="flex">
+      <div className="flex sm:flex-row flex-col">
         {ownedFarmerNFT && (
-          <div className="flex w-[300px] h-[300px] flex-col items-center gap-3 ">
+          <div className="flex lg:w-[300px] w-[200px] lg:h-[300px] h-[200px] flex-col items-center">
             <p className="text-[40px] text-white">FARMER</p>
             <MediaRenderer
               src={ownedFarmerNFT[0]?.metadata.image}
               alt="NFT image"
               width="100%"
               height="100%"
-              className="rounded-[20px]"
+              className="sm:block hidden rounded-[20px]"
             />
             <p className="text-lg text-white">
               REFCODE:{" "}
@@ -127,9 +127,9 @@ const app = () => {
           </div>
         )}
 
-        <div className="flex-1 pl-10 flex flex-col">
+        <div className="flex-1 pl-10 flex flex-col max-md:mx-auto">
           {/* bag */}
-          <div className="flex gap-10">
+          <div className="flex gap-5">
             <div
               className="bg-slate-700 p-3 rounded-[10px] cursor-pointer"
               onClick={() => setChoose("bag")}

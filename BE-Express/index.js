@@ -16,7 +16,8 @@ db();
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://143.198.99.232:3000"],
+    // origin: "http://localhost:3000",
+    origin: "http://89.116.34.208:3000",
   })
 );
 app.use(express.json());

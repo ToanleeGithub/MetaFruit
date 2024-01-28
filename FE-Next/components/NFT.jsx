@@ -31,7 +31,7 @@ const NFT = ({ nft }) => {
         height="300px"
         className="rounded-xl"
       />
-      <p className="absolute bottom-[110px] text-center text-[24px]">{nft.metadata.name}</p>
+      <p className="absolute bottom-[28%] text-center text-[24px]">{nft.metadata.name}</p>
       {!isLoading && data ? (
         <p className="text-lg text-center text-yellow-500">
           Cost: {ethers.utils.formatUnits(data?.price)} {" " + data?.currencyMetadata.symbol}

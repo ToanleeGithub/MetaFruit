@@ -18,7 +18,7 @@ const Navbar = () => {
         <Image src="/fruittoken3.webp" width={50} height={50} className="rounded-[10px]" />
 
         <div>
-          <h1 className="text-[24px] text-white">CRYPTO GAME</h1>
+          <h1 className="md:text-[24px] text-[16px] text-white">CRYPTO GAME</h1>
         </div>
 
         <div className="flex gap-3 items-center">

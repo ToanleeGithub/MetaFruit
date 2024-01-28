@@ -45,14 +45,14 @@ const Bag = () => {
     );
 
   return (
-    <div className="grid grid-cols-4 gap-3">
+    <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3">
       {ownedFruitNFTs?.map((nft, index) => (
         <div key={index}>
           <MediaRenderer
             src={nft.metadata.image}
             width="200px"
             height="200px"
-            className="rounded-[20px]"
+            className="rounded-[20px] mx-auto"
           />
           <p className="text-center text-white">{nft.metadata.name}</p>
           <div className="flex justify-center">

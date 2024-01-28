@@ -9,7 +9,7 @@ const shop = () => {
   const { data: fruitNFTs } = useNFTs(fruitContract);
   return (
     <AppLayout>
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-3">
         {fruitNFTs?.map((nft, index) => (
           <NFT key={index} nft={nft} />
         ))}
