@@ -55,6 +55,11 @@ const App = () => {
         refCode,
         inviteCode: code,
       });
+
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/takerefcode`, {
+        address,
+      });
+      setRefCode(response.data);
     } catch (error) {
       console.log(error);
     }
