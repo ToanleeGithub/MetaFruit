@@ -15,7 +15,8 @@ const ExploreCard = ({ id, imgUrl, title, index, active, handleClick }) => {
       <Image
         src={imgUrl}
         alt="fruit"
-        layout="fill"
+        fill
+        style={{ objectFit: "cover" }}
         className="absolute object-cover rounded-[24px]"
       />
 
