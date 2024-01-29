@@ -45,6 +45,7 @@ app.post("/name", async (req, res) => {
     await model.userModel.create({ address, refCode, inviteCode });
 
     console.log("register success");
+    res.json("thanh cong");
   } catch (error) {
     console.log(error);
     res.status(500).send("Server error");

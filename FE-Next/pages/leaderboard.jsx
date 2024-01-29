@@ -11,19 +11,32 @@ const Leaderboard = () => {
   const [name, setName] = useState("");
 
   useEffect(() => {
+    const controller = new AbortController();
+
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/leaderboard`);
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/leaderboard`, {
+          signal: controller.signal,
+        });
         setData(response.data);
       } catch (error) {
-        console.error("Error fetching data: ", error);
+        if (axios.isCancel(error)) {
+          console.log("Request canceled", error.message);
+        } else {
+          console.error("Error fetching data: ", error);
+        }
       }
     };
 
     fetchData();
     const intervalId = setInterval(fetchData, 15000);
-    return () => clearInterval(intervalId);
-  }, []);
+
+    return () => {
+      clearInterval(intervalId);
+      controller.abort();
+    };
+  }, [address]);
+
   const handleChangeName = async () => {
     try {
       const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/changeName`, {
@@ -60,7 +73,9 @@ const Leaderboard = () => {
           <div key={index} className="flex items-center lg:w-1/2 w-full mx-auto">
             <h1 className="text-white min-w-10 md:text-2xl text-lg">{index + 1}</h1>
             <div className="md:min-w-[500px] min-w-[100px]">
-              <h1 className="text-white md:text-2xl text-lg">{item.nickName}</h1>
+              <h1 className="text-white md:text-2xl text-lg">
+                {item.nickName} - <span className="text-lg text-yellow-500">{item.refCode}</span>
+              </h1>
               <h1 className="text-white md:block hidden">{item.address}</h1>
             </div>
             <div className="flex justify-center items-center gap-2">

@@ -1,4 +1,3 @@
-"use client";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { AppLayout, Bag, Farm } from "../components";
@@ -21,43 +20,63 @@ const App = () => {
   const [code, setCode] = useState("");
 
   const [refCode, setRefCode] = useState("");
+  const [isFarmer, setIsFarmer] = useState(false);
 
   const address = useAddress();
 
   useEffect(() => {
-    const fetData = async () => {
+    const controller = new AbortController();
+
+    const fetchData = async () => {
+      setIsFarmer(false);
       try {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/takerefcode`, {
-          address,
-        });
+        const response = await axios.post(
+          `${process.env.NEXT_PUBLIC_BACKEND_URL}/takerefcode`,
+          { address },
+          {
+            headers: { "Content-Type": "application/json" },
+            signal: controller.signal,
+          }
+        );
         setRefCode(response.data);
       } catch (error) {
-        console.error("Error fetching data: ", error);
+        if (axios.isCancel(error)) {
+          console.log("Request canceled:", error.message);
+        } else {
+          console.error("Error fetching data: ", error);
+        }
       }
     };
 
-    fetData();
-  }, [address]);
+    fetchData();
+
+    return () => {
+      controller.abort();
+    };
+  }, [address, isFarmer]);
 
   const { contract: farmerContract } = useContract(FARMER_ADDRESS);
 
   const { data: metadata } = useMetadata(farmerContract);
-  const { data: ownedFarmerNFT, isLoading: loadingOwnedFarmer } = useOwnedNFTs(
-    farmerContract,
-    address
-  );
+  const { data: ownedFarmerNFT, isLoading: loadingOwnedFarmer } = useOwnedNFTs(farmerContract, address);
 
   const handleSuccess = async (result, code) => {
+    const controller = new AbortController();
     try {
-      await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/name`, {
-        result,
-        inviteCode: code,
-      });
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/name`,
+        { result, inviteCode: code },
+        { headers: { "Content-Type": "application/json" }, signal: controller.signal }
+      );
+      setIsFarmer(true);
     } catch (error) {
-      console.log(error);
+      if (axios.isCancel(error)) {
+        console.log("Request canceled", error.message);
+      } else {
+        console.log(error);
+      }
     }
   };
-
   if (!address)
     return (
       <AppLayout>
@@ -96,7 +115,7 @@ const App = () => {
           />
           <Web3Button
             contractAddress={FARMER_ADDRESS}
-            action={(contract) => contract.erc1155.claim(0, 1)}
+            action={async (contract) => await contract.erc1155.claim(0, 1)}
             onSuccess={(result) => handleSuccess(result, code)}
             className="connectButton"
           >
@@ -120,8 +139,7 @@ const App = () => {
               className="sm:block hidden rounded-[20px]"
             />
             <p className="text-lg text-white">
-              REFCODE:{" "}
-              <span className="text-2xl text-yellow-500 font-mono font-bold">{refCode}</span>
+              REFCODE: <span className="text-2xl text-yellow-500 font-mono font-bold">{refCode}</span>
             </p>
           </div>
         )}
@@ -129,17 +147,11 @@ const App = () => {
         <div className="flex-1 pl-10 flex flex-col max-md:mx-auto">
           {/* bag */}
           <div className="flex gap-5">
-            <div
-              className="bg-slate-700 p-3 rounded-[10px] cursor-pointer"
-              onClick={() => setChoose("bag")}
-            >
+            <div className="bg-slate-700 p-3 rounded-[10px] cursor-pointer" onClick={() => setChoose("bag")}>
               <CiBag1 className="text-[40px] text-white hover:text-yellow-500 transition-all duration-500" />
             </div>
 
-            <div
-              className="bg-slate-700 p-3 rounded-[10px] cursor-pointer"
-              onClick={() => setChoose("farm")}
-            >
+            <div className="bg-slate-700 p-3 rounded-[10px] cursor-pointer" onClick={() => setChoose("farm")}>
               <GiFarmTractor className="text-[40px] text-white hover:text-yellow-500 transition-all duration-500" />
             </div>
           </div>
