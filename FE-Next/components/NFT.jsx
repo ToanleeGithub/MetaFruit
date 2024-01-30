@@ -1,13 +1,10 @@
-import {
-  MediaRenderer,
-  Web3Button,
-  useContract,
-  useActiveClaimCondition,
-} from "@thirdweb-dev/react";
+import { MediaRenderer, Web3Button, useContract, useActiveClaimCondition } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
 import { FRUIT_ADDRESS } from "../addresses";
 import Image from "next/image";
 import axios from "axios";
+import { fruit } from "../constants";
+import { ImPower } from "react-icons/im";
 
 const NFT = ({ nft }) => {
   const { contract } = useContract(FRUIT_ADDRESS);
@@ -31,7 +28,8 @@ const NFT = ({ nft }) => {
         height="300px"
         className="rounded-xl"
       />
-      <p className="absolute bottom-[28%] text-center text-[24px]">{nft.metadata.name}</p>
+      <p className="absolute bottom-[28%] text-center text-[24px] text-white">{nft.metadata.name}</p>
+
       {!isLoading && data ? (
         <p className="text-lg text-center text-yellow-500">
           Cost: {ethers.utils.formatUnits(data?.price)} {" " + data?.currencyMetadata.symbol}
@@ -45,7 +43,10 @@ const NFT = ({ nft }) => {
         onSuccess={(result) => handleSuccess(result)}
         className="connectButton"
       >
-        Mint NFT
+        <div className="flex justify-center items-center gap-2 text-[20px]">
+          <ImPower />
+          <p>{fruit[nft.metadata.id].farmSpeed}/h</p>
+        </div>
       </Web3Button>
     </div>
   );

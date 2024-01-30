@@ -18,7 +18,6 @@ import Image from "next/image";
 const App = () => {
   const [choose, setChoose] = useState("bag");
   const [code, setCode] = useState("");
-
   const [refCode, setRefCode] = useState("");
   const [isFarmer, setIsFarmer] = useState(false);
 

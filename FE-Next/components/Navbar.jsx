@@ -7,21 +7,10 @@ import Button from "./Button";
 
 const Navbar = () => {
   return (
-    <motion.section
-      variants={navVariants}
-      initial="hidden"
-      whileInView="show"
-      className="sm:px-16 px-6 pt-8 relative"
-    >
+    <motion.section variants={navVariants} initial="hidden" whileInView="show" className="sm:px-16 px-6 pt-8 relative">
       <div className="absolute w-1/2 inset-0 gradient-01"></div>
       <div className="innerWidth flex justify-between items-center">
-        <Image
-          src="/fruittoken3.webp"
-          width={50}
-          height={50}
-          className="rounded-[10px]"
-          alt="fruit"
-        />
+        <Image src="/orange.webp" width={50} height={50} className="rounded-[10px] z-10" alt="fruit" />
 
         <div>
           <h1 className="md:text-[24px] text-[16px] text-white">CRYPTO GAME</h1>

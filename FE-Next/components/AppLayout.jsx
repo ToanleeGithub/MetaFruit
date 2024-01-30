@@ -18,13 +18,7 @@ const AppLayout = ({ children }) => {
         className="innerWidth flex justify-between items-center"
       >
         <Link href="/">
-          <Image
-            src="/fruittoken3.webp"
-            alt="logo"
-            width={70}
-            height={70}
-            className="rounded-[10px]"
-          />
+          <Image src="/orange.webp" alt="logo" width={70} height={70} className="rounded-[10px]" />
         </Link>
 
         <div className="flex items-center gap-5">

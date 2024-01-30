@@ -44,8 +44,7 @@ export const newFeatures = [
   {
     imgUrl: "/headset.svg",
     title: "More realistic",
-    subtitle:
-      "In the latest update, your eyes are narrow, making the world more realistic than ever",
+    subtitle: "In the latest update, your eyes are narrow, making the world more realistic than ever",
   },
 ];
 
@@ -88,15 +87,50 @@ export const socials = [
     url: "/facebook.svg",
   },
 ];
-// export const navlinks = [
-//   {
-//     name: "dashboard",
-//     imgUrl: dashboard,
-//     link: "/app",
-//   },
-//   {
-//     name: "shop",
-//     imgUrl: shop,
-//     link: "/shop",
-//   },
-// ];
+export const fruit = [
+  {
+    id: 0,
+    name: "Meta Apple",
+    farmSpeed: 8.3,
+  },
+  {
+    id: 1,
+    name: "Meta Banana",
+    farmSpeed: 13,
+  },
+  {
+    id: 2,
+    name: "Meta Orange",
+    farmSpeed: 18.1,
+  },
+  {
+    id: 3,
+    name: "Meta Mango",
+    farmSpeed: 23.7,
+  },
+  {
+    id: 4,
+    name: "Meta Grape",
+    farmSpeed: 29.8,
+  },
+  {
+    id: 5,
+    name: "Meta Pineapple",
+    farmSpeed: 36.5,
+  },
+  {
+    id: 6,
+    name: "Meta Cherry",
+    farmSpeed: 43.9,
+  },
+  {
+    id: 7,
+    name: "Meta Strawberry",
+    farmSpeed: 52.1,
+  },
+  {
+    id: 8,
+    name: "Meta Starfruit",
+    farmSpeed: 61.3,
+  },
+];

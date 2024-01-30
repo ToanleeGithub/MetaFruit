@@ -1,14 +1,9 @@
-import {
-  MediaRenderer,
-  Web3Button,
-  useAddress,
-  useContract,
-  useContractRead,
-  useNFT,
-} from "@thirdweb-dev/react";
+import { MediaRenderer, Web3Button, useAddress, useContract, useContractRead, useNFT } from "@thirdweb-dev/react";
 import { FRUIT_ADDRESS, STAKING_CONTRACT_ADDRESS } from "../addresses";
 import { ethers } from "ethers";
 import { useEffect } from "react";
+import { ImPower } from "react-icons/im";
+import { fruit } from "../constants";
 
 const PlantedFruit = ({ tokenId }) => {
   const address = useAddress();
@@ -41,7 +36,10 @@ const PlantedFruit = ({ tokenId }) => {
             alt="fruitNft"
             className="rounded-[20px]"
           />
-          <p className="absolute top-[20px] left-[20px] text-center">{fruitNFT.metadata.name}</p>
+          <div className="absolute top-[20px] left-[20px] text-center text-white flex flex-col justify-center items-center">
+            <ImPower />
+            <p>{fruit[tokenId].farmSpeed}</p>
+          </div>
 
           <div className="flex items-center flex-col gap-2">
             <Web3Button
