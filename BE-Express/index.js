@@ -18,7 +18,7 @@ db();
 app.use(
   cors({
     // origin: "http://localhost:3000",
-    origin: "https://metaftuit.pro",
+    origin: "https://metafruit.pro",
   })
 );
 app.use(express.json());
