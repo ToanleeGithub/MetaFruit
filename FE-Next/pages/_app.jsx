@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
     <ThirdwebProvider activeChain={Binance} clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}>
       <Head>
         <title>Meta Fruit</title>
+        <link rel="icon" href="/orange.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
