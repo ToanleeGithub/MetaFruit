@@ -7,7 +7,7 @@ const crypto = require("crypto");
 
 const db = require("./connectDB");
 const Web3 = require("web3");
-const web3 = new Web3("https://mumbai.rpc.thirdweb.com/");
+const web3 = new Web3("https://bsc-dataseed.binance.org/");
 
 const priceArray = [
   5000, 6000, 7000, 8000, 10000, 12000, 14500, 17500, 21000, 25000,
@@ -18,7 +18,7 @@ db();
 app.use(
   cors({
     // origin: "http://localhost:3000",
-    origin: "http://89.116.34.208:3000",
+    origin: "https://metaftuit.pro",
   })
 );
 app.use(express.json());
