@@ -18,7 +18,7 @@ const Navbar = () => {
 
         <div className="flex gap-3 items-center">
           <Link href="/app">
-            <Button name="APP" />
+            <Button name="PLAY" />
           </Link>
           <Link href="/docs">
             <Button name="DOCS" />
