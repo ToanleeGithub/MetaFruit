@@ -5,6 +5,7 @@ import Image from "next/image";
 import axios from "axios";
 import { fruit } from "../constants";
 import { ImPower } from "react-icons/im";
+import { motion } from "framer-motion";
 
 const NFT = ({ nft }) => {
   const { contract } = useContract(FRUIT_ADDRESS);
@@ -20,14 +21,16 @@ const NFT = ({ nft }) => {
 
   return (
     <div className="relative flex flex-col justify-center items-center gap-2">
-      <MediaRenderer
-        src={nft.metadata.image}
-        alt="NFT Image"
-        key={nft.id}
-        width="300px"
-        height="300px"
-        className="rounded-xl"
-      />
+      <motion.div whileHover={{ scale: 1.1 }}>
+        <MediaRenderer
+          src={nft.metadata.image}
+          alt="NFT Image"
+          key={nft.id}
+          width="300px"
+          height="300px"
+          className="rounded-xl"
+        />
+      </motion.div>
       <p className="absolute bottom-[28%] text-center text-[24px] text-white">{nft.metadata.name}</p>
 
       {!isLoading && data ? (
