@@ -10,7 +10,7 @@ const Web3 = require("web3");
 const web3 = new Web3("https://bsc-dataseed.binance.org/");
 
 const priceArray = [
-  5000, 7500, 10000, 12500, 15000, 17500, 20000, 22500, 25000, 27500,
+  5000, 6000, 7000, 8000, 10000, 12000, 14500, 17500, 21000, 25000,
 ];
 
 db();
