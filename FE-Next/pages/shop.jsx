@@ -4,6 +4,7 @@ import { FRUIT_ADDRESS } from "../addresses";
 import { useContract, useNFTs } from "@thirdweb-dev/react";
 import { NFT } from "../components";
 import Image from "next/image";
+import { Toaster } from "react-hot-toast";
 
 const Shop = () => {
   const nftVariant = {

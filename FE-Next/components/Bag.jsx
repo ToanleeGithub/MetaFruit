@@ -1,23 +1,16 @@
 import React from "react";
-import {
-  MediaRenderer,
-  useAddress,
-  useContract,
-  useOwnedNFTs,
-  Web3Button,
-} from "@thirdweb-dev/react";
+import { MediaRenderer, useAddress, useContract, useOwnedNFTs, Web3Button } from "@thirdweb-dev/react";
 import { FRUIT_ADDRESS, STAKING_CONTRACT_ADDRESS } from "../addresses";
 import Link from "next/link";
 import Image from "next/image";
+import toast, { Toaster } from "react-hot-toast";
 
 const Bag = () => {
+  <Toaster position="top-right" />;
   const address = useAddress();
   const { contract: fruitContract } = useContract(FRUIT_ADDRESS);
   const { contract: stakingContract } = useContract(STAKING_CONTRACT_ADDRESS);
-  const { data: ownedFruitNFTs, isLoading: loadingFruitNFTs } = useOwnedNFTs(
-    fruitContract,
-    address
-  );
+  const { data: ownedFruitNFTs, isLoading: loadingFruitNFTs } = useOwnedNFTs(fruitContract, address);
 
   async function plant(id) {
     if (!address) return;
@@ -48,17 +41,13 @@ const Bag = () => {
     <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3">
       {ownedFruitNFTs?.map((nft, index) => (
         <div key={index}>
-          <MediaRenderer
-            src={nft.metadata.image}
-            width="200px"
-            height="200px"
-            className="rounded-[20px] mx-auto"
-          />
+          <MediaRenderer src={nft.metadata.image} width="200px" height="200px" className="rounded-[20px] mx-auto" />
           <p className="text-center text-white">{nft.metadata.name}</p>
           <div className="flex justify-center">
             <Web3Button
               contractAddress={STAKING_CONTRACT_ADDRESS}
               action={() => plant(nft.metadata.id)}
+              onSuccess={() => toast.success("PLANTED!")}
               className="plantButton"
             >
               Plant {nft.quantityOwned}

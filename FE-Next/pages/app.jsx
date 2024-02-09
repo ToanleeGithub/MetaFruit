@@ -14,6 +14,7 @@ import {
 } from "@thirdweb-dev/react";
 import { FARMER_ADDRESS } from "../addresses";
 import Image from "next/image";
+import toast, { Toaster } from "react-hot-toast";
 
 const App = () => {
   const [choose, setChoose] = useState("bag");
@@ -68,6 +69,8 @@ const App = () => {
         { headers: { "Content-Type": "application/json" }, signal: controller.signal }
       );
       setIsFarmer(true);
+
+      toast.success("MINT YOUR FARMER SUCCESSFULLY!");
     } catch (error) {
       if (axios.isCancel(error)) {
         console.log("Request canceled", error.message);
@@ -97,6 +100,7 @@ const App = () => {
   if (ownedFarmerNFT?.length === 0)
     return (
       <AppLayout>
+        <Toaster position="top-right" />
         <div className="flex flex-col justify-center items-center h-[100%] gap-5">
           <MediaRenderer
             src={metadata?.image}
@@ -126,6 +130,7 @@ const App = () => {
 
   return (
     <AppLayout>
+      <Toaster position="top-right" />
       <div className="flex sm:flex-row flex-col">
         {ownedFarmerNFT && (
           <div className="flex lg:w-[300px] w-[200px] lg:h-[300px] h-[200px] flex-col items-center">

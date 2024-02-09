@@ -4,6 +4,7 @@ import { ethers } from "ethers";
 import { useEffect } from "react";
 import { ImPower } from "react-icons/im";
 import { fruit } from "../constants";
+import toast, { Toaster } from "react-hot-toast";
 
 const PlantedFruit = ({ tokenId }) => {
   const address = useAddress();
@@ -38,13 +39,14 @@ const PlantedFruit = ({ tokenId }) => {
           />
           <div className="absolute top-[20px] left-[20px] text-center text-white flex flex-col justify-center items-center">
             <ImPower />
-            <p>{fruit[tokenId].farmSpeed}</p>
+            <p>{fruit[tokenId]?.farmSpeed}</p>
           </div>
 
           <div className="flex items-center flex-col gap-2">
             <Web3Button
               contractAddress={STAKING_CONTRACT_ADDRESS}
               action={(contract) => contract.call("withdraw", [tokenId, 1])}
+              onSuccess={() => toast.success("UNPLANTED DONE!")}
               className="unPlantButton"
             >
               Unplanted {ethers.utils.formatUnits(claimableRewards[0], 0)}
@@ -52,6 +54,7 @@ const PlantedFruit = ({ tokenId }) => {
             <Web3Button
               contractAddress={STAKING_CONTRACT_ADDRESS}
               action={(contract) => contract.call("claimRewards", [tokenId])}
+              onSuccess={() => toast.success("CLAIM SUCCESSFULLY")}
               className="claimButton"
             >
               Claim{" "}

@@ -6,6 +6,7 @@ import axios from "axios";
 import { fruit } from "../constants";
 import { ImPower } from "react-icons/im";
 import { motion } from "framer-motion";
+import toast, { Toaster } from "react-hot-toast";
 
 const NFT = ({ nft }) => {
   const { contract } = useContract(FRUIT_ADDRESS);
@@ -14,6 +15,7 @@ const NFT = ({ nft }) => {
   const handleSuccess = async (result) => {
     try {
       await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/mintNFT`, { result });
+      toast.success("MINT NFT SUCCESSFULLY");
     } catch (error) {
       console.log(error);
     }
@@ -21,6 +23,7 @@ const NFT = ({ nft }) => {
 
   return (
     <div className="relative flex flex-col justify-center items-center gap-2">
+      <Toaster position="top-right" />
       <motion.div whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}>
         <MediaRenderer
           src={nft.metadata.image}
@@ -44,11 +47,12 @@ const NFT = ({ nft }) => {
         contractAddress={FRUIT_ADDRESS}
         action={(contract) => contract.erc1155.claim(nft.metadata.id, 1)}
         onSuccess={(result) => handleSuccess(result)}
+        onError={() => toast.error("MINT NFT FAILED")}
         className="connectButton"
       >
         <div className="flex justify-center items-center gap-2 text-[20px]">
           <ImPower />
-          <p>{fruit[nft.metadata.id].farmSpeed}/h</p>
+          <p>{fruit[nft.metadata.id]?.farmSpeed}/h</p>
         </div>
       </Web3Button>
     </div>
