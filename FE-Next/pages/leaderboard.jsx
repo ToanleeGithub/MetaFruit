@@ -69,13 +69,15 @@ const Leaderboard = () => {
             onClick={() => handleChangeName()}
           />
         </div>
+
         {data?.map((item, index) => (
           <div key={index} className="flex items-center lg:w-1/2 w-full mx-auto">
             <h1 className="text-white min-w-10 md:text-2xl text-lg">{index + 1}</h1>
             <div className="md:min-w-[500px] min-w-[100px]">
-              <h1 className="text-white md:text-2xl text-lg">
-                {item.nickName} - <span className="text-lg text-yellow-500 font-mono">{item.refCode}</span>
-              </h1>
+              <div className="flex items-center gap-2">
+                <h1 className="text-white md:text-2xl text-lg">{item.nickName} -</h1>
+                <p className="text-lg text-yellow-500 font-mono">{item.refCode}</p>
+              </div>
               <h1 className="text-white md:block hidden">{item.address}</h1>
             </div>
             <div className="flex justify-center items-center gap-2">
