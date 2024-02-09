@@ -12,6 +12,8 @@ import Bag from "./Bag";
 import Farm from "./Farm";
 import PlantedFruit from "./PlantedFruit";
 import NFT from "./NFT";
+import Roadmap from "./Roadmap";
+import Footer from "./Footer";
 
 export {
   Button,
@@ -29,4 +31,6 @@ export {
   Farm,
   PlantedFruit,
   NFT,
+  Roadmap,
+  Footer,
 };

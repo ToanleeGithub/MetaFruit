@@ -21,7 +21,7 @@ const NFT = ({ nft }) => {
 
   return (
     <div className="relative flex flex-col justify-center items-center gap-2">
-      <motion.div whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}>
+      <motion.div whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}>
         <MediaRenderer
           src={nft.metadata.image}
           alt="NFT Image"

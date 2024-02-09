@@ -4,6 +4,8 @@ import { navVariants } from "../utils/motion";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "./Button";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaTelegram } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -18,11 +20,17 @@ const Navbar = () => {
 
         <div className="flex gap-3 items-center">
           <Link href="/app">
-            <Button name="PLAY" />
+            <Button>PLAY</Button>
           </Link>
-          <Link href="/docs">
-            <Button name="DOCS" />
-          </Link>
+
+          <a href="https://t.me/metafruitChannel" target="_blank" rel="noopener noreferrer">
+            <p className="text-sky-500 text-3xl hover:text-white hover:scale-110 transition-all">
+              <FaTelegram />
+            </p>
+          </a>
+          <a href="https://twitter.com/metafruitpro" target="_blank" rel="noopener noreferrer">
+            <FaXTwitter className="text-white text-3xl hover:scale-110 transition-all" />
+          </a>
         </div>
       </div>
     </motion.section>
