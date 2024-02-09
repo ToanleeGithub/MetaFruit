@@ -147,11 +147,19 @@ const App = () => {
           {/* bag */}
           <div className="flex gap-5">
             <div className="bg-slate-700 p-3 rounded-[10px] cursor-pointer" onClick={() => setChoose("bag")}>
-              <CiBag1 className="text-[40px] text-white hover:text-yellow-500 transition-all duration-500" />
+              <CiBag1
+                className={`${
+                  choose === "bag" ? "text-yellow-500" : "text-white"
+                } text-[40px] text-white hover:text-yellow-500 transition-all duration-500`}
+              />
             </div>
 
             <div className="bg-slate-700 p-3 rounded-[10px] cursor-pointer" onClick={() => setChoose("farm")}>
-              <GiFarmTractor className="text-[40px] text-white hover:text-yellow-500 transition-all duration-500" />
+              <GiFarmTractor
+                className={`${
+                  choose === "farm" ? "text-yellow-500" : "text-white"
+                } text-[40px] text-white hover:text-yellow-500 transition-all duration-500`}
+              />
             </div>
           </div>
           {/* end Bag */}

@@ -7,8 +7,20 @@ import { AiOutlineShop } from "react-icons/ai";
 import { MdLeaderboard } from "react-icons/md";
 import { GiFruitBowl } from "react-icons/gi";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const AppLayout = ({ children }) => {
+  const [active, setActive] = useState("");
+
+  const handleActive = (page) => {
+    localStorage.setItem("activePage", page);
+  };
+
+  useEffect(() => {
+    const activePage = localStorage.getItem("activePage");
+    setActive(activePage);
+  }, []);
+
   return (
     <div className="min-h-[72px] xPaddings py-4">
       <motion.div
@@ -31,16 +43,28 @@ const AppLayout = ({ children }) => {
 
       <div className="py-8 innerWidth flex z-[10]">
         <div className="w-[70px] h-[250px] rounded-[20px] bg-slate-700 flex flex-col px-4 py-8 items-center gap-8">
-          <Link href="/app">
-            <IoAppsSharp className='text-[40px] "text-white" cursor-pointer text-white hover:text-yellow-500 transition-all duration-600' />
+          <Link href="/app" onClick={() => handleActive("app")}>
+            <IoAppsSharp
+              className={`${
+                active === "app" ? "text-yellow-500" : "text-white"
+              } text-[40px] "text-white" cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
+            />
           </Link>
 
-          <Link href="/shop">
-            <AiOutlineShop className='text-[40px] "text-white" cursor-pointer text-white hover:text-yellow-500 transition-all duration-600' />
+          <Link href="/shop" onClick={() => handleActive("shop")}>
+            <AiOutlineShop
+              className={`${
+                active === "shop" ? "text-yellow-500" : "text-white"
+              } text-[40px] "text-white" cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
+            />
           </Link>
 
-          <Link href="/leaderboard">
-            <MdLeaderboard className='text-[40px] "text-white" cursor-pointer text-white hover:text-yellow-500 transition-all duration-600' />
+          <Link href="/leaderboard" onClick={() => handleActive("leaderboard")}>
+            <MdLeaderboard
+              className={`${
+                active === "leaderboard" ? "text-yellow-500" : "text-white"
+              } text-[40px] "text-white" cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
+            />
           </Link>
         </div>
 

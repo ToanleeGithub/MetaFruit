@@ -21,7 +21,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex gap-3 items-center">
-          <Link href="/app">
+          <Link href="/app" onClick={() => localStorage.setItem("activePage", "app")}>
             <Button>PLAY</Button>
           </Link>
 
