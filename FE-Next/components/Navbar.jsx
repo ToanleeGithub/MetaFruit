@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { navVariants } from "../utils/motion";
 import Image from "next/image";
@@ -8,6 +8,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaTelegram } from "react-icons/fa";
 
 const Navbar = () => {
+  const [isHover, setIsHover] = useState(false);
+  console.log(isHover);
   return (
     <motion.section variants={navVariants} initial="hidden" whileInView="show" className="sm:px-16 px-6 pt-8 relative">
       <div className="absolute w-1/2 inset-0 gradient-01"></div>
@@ -23,11 +25,25 @@ const Navbar = () => {
             <Button>PLAY</Button>
           </Link>
 
-          <a href="https://t.me/metafruitChannel" target="_blank" rel="noopener noreferrer">
+          <div onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} className="relative">
             <p className="text-sky-500 text-3xl hover:text-white hover:scale-110 transition-all">
               <FaTelegram />
             </p>
-          </a>
+
+            {/* <div className="absolute top-[100%] right-0 bg-red-200 w-[100px] h-[10px]" /> */}
+
+            {isHover ? (
+              <div className="absolute top-[100%] right-[-170%] w-[120px] h-[100px] bg-white text-yellow-500 p-4 z-0 text-right flex flex-col gap-3 rounded-xl shadow-lg">
+                <a href="https://t.me/metafruitChannel" target="_blank">
+                  CHANNEL
+                </a>
+                <a href="https://t.me/metafruitchat" target="_blank">
+                  CHAT
+                </a>
+              </div>
+            ) : null}
+          </div>
+
           <a href="https://twitter.com/metafruitpro" target="_blank" rel="noopener noreferrer">
             <FaXTwitter className="text-white text-3xl hover:scale-110 transition-all" />
           </a>
