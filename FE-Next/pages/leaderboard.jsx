@@ -54,7 +54,7 @@ const Leaderboard = () => {
     <AppLayout>
       <div className="flex flex-col items-center md:gap-5 gap-3">
         <h1 className="relative text-center md:text-6xl text-3xl text-yellow-500">LEADER BOARD</h1>
-        <div className="absolute w-1/4 h-[300px] gradient-02 z-[0]" />
+        <div className="absolute w-1/4 h-[300px] gradient-02 z-[-10]" />
         <div className="flex justify-center items-center gap-5 z-[10]">
           <input
             type="text"
@@ -74,7 +74,7 @@ const Leaderboard = () => {
             <h1 className="text-white min-w-10 md:text-2xl text-lg">{index + 1}</h1>
             <div className="md:min-w-[500px] min-w-[100px]">
               <h1 className="text-white md:text-2xl text-lg">
-                {item.nickName} - <span className="text-lg text-yellow-500">{item.refCode}</span>
+                {item.nickName} - <span className="text-lg text-yellow-500 font-mono">{item.refCode}</span>
               </h1>
               <h1 className="text-white md:block hidden">{item.address}</h1>
             </div>
