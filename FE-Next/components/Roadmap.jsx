@@ -25,7 +25,7 @@ const Roadmap = () => {
     },
   };
   return (
-    <div className="paddings">
+    <div className="paddings mb-20">
       <div className="flex justify-center flex-col items-center gap-5">
         <motion.h1
           initial={{ opacity: 0 }}
@@ -37,38 +37,38 @@ const Roadmap = () => {
 
         <motion.ul variants={listVariant} initial="hidden" whileInView="show">
           <motion.li variants={itemVariant} className="flex items-center gap-3">
-            <FaRegCheckCircle className="font-mono text-3xl text-green-500" />
-            <h1 className="font-mono text-3xl text-white">Ideation</h1>
+            <FaRegCheckCircle className="font-mono lg:text-3xl text-lg text-green-500" />
+            <h1 className="font-mono lg:text-3xl text-lg text-white">Ideation</h1>
           </motion.li>
 
           <motion.li variants={itemVariant} className="flex items-center gap-3">
-            <FaRegCheckCircle className="font-mono text-3xl text-green-500" />
-            <h1 className="font-mono text-3xl text-white">Seed funding round.</h1>
+            <FaRegCheckCircle className="font-mono lg:text-3xl text-lg text-green-500" />
+            <h1 className="font-mono lg:text-3xl text-lg text-white">Seed funding round.</h1>
           </motion.li>
 
           <motion.li variants={itemVariant} className="flex items-center gap-3">
-            <FaRegCheckCircle className="font-mono text-3xl text-green-500" />
-            <h1 className="font-mono text-3xl text-white">Testnet</h1>
+            <FaRegCheckCircle className="font-mono lg:text-3xl text-lg text-green-500" />
+            <h1 className="font-mono lg:text-3xl text-lg text-white">Testnet</h1>
           </motion.li>
 
           <motion.li variants={itemVariant} className="flex items-center gap-3">
-            <FaRegCheckCircle className="font-mono text-3xl text-green-500" />
-            <h1 className="font-mono text-3xl text-white">Mainnet launch + DEX listing</h1>
+            <FaRegCheckCircle className="font-mono lg:text-3xl text-lg text-green-500" />
+            <h1 className="font-mono lg:text-3xl text-lg text-white">Mainnet launch + DEX listing</h1>
           </motion.li>
 
           <motion.li variants={itemVariant} className="flex items-center gap-3">
-            <FaRegCircle className="font-mono text-3xl text-green-500" />
-            <h1 className="font-mono text-3xl text-white">Merge and upgrade NFT</h1>
+            <FaRegCircle className="font-mono lg:text-3xl text-lg text-green-500" />
+            <h1 className="font-mono lg:text-3xl text-lg text-white">Merge and upgrade NFT</h1>
           </motion.li>
 
           <motion.li variants={itemVariant} className="flex items-center gap-3">
-            <FaRegCircle className="font-mono text-3xl text-green-500" />
-            <h1 className="font-mono text-3xl text-white">Marketplace</h1>
+            <FaRegCircle className="font-mono lg:text-3xl text-lg text-green-500" />
+            <h1 className="font-mono lg:text-3xl text-lg text-white">Marketplace</h1>
           </motion.li>
 
           <motion.li variants={itemVariant} className="flex items-center gap-3">
-            <FaRegCircle className="font-mono text-3xl text-green-500" />
-            <h1 className="font-mono text-3xl text-white">CEX listing</h1>
+            <FaRegCircle className="font-mono lg:text-3xl text-lg text-green-500" />
+            <h1 className="font-mono lg:text-3xl text-lg text-white">CEX listing</h1>
           </motion.li>
         </motion.ul>
       </div>
