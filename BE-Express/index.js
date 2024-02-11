@@ -4,9 +4,11 @@ const port = 3001;
 const model = require("./model");
 const cors = require("cors");
 const crypto = require("crypto");
+const fs = require("fs");
 
 const db = require("./connectDB");
 const Web3 = require("web3");
+const path = require("path");
 const web3 = new Web3("https://bsc-dataseed.binance.org/");
 
 const priceArray = [
@@ -140,6 +142,20 @@ app.post("/takerefcode", async (req, res) => {
   } catch (error) {
     console.error(error);
   }
+});
+
+app.post("/api/log", (req, res) => {
+  const { tag, message } = req.body;
+  const timestamp = new Date().toISOString();
+  const formattedMessage = `${timestamp}: [${tag}] ${message}\n`;
+
+  fs.appendFile(path.join(__dirname, "log.log"), formattedMessage, (err) => {
+    if (err) {
+      console.error("Error writing to log file", err);
+      return res.status(500).send("Error writing to log file");
+    }
+    res.send("Log written successfully");
+  });
 });
 
 app.listen(port, () => {

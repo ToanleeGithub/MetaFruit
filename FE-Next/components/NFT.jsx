@@ -1,4 +1,4 @@
-import { MediaRenderer, Web3Button, useContract, useActiveClaimCondition } from "@thirdweb-dev/react";
+import { MediaRenderer, Web3Button, useContract, useActiveClaimCondition, useAddress } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
 import { FRUIT_ADDRESS } from "../addresses";
 import Image from "next/image";
@@ -7,8 +7,10 @@ import { fruit } from "../constants";
 import { ImPower } from "react-icons/im";
 import { motion } from "framer-motion";
 import toast, { Toaster } from "react-hot-toast";
+import Log from "../logger";
 
 const NFT = ({ nft }) => {
+  const address = useAddress();
   const { contract } = useContract(FRUIT_ADDRESS);
   const { data, isLoading } = useActiveClaimCondition(contract, nft.metadata.id);
 
@@ -46,7 +48,10 @@ const NFT = ({ nft }) => {
       <Web3Button
         contractAddress={FRUIT_ADDRESS}
         action={(contract) => contract.erc1155.claim(nft.metadata.id, 1)}
-        onSuccess={(result) => handleSuccess(result)}
+        onSuccess={(result) => {
+          handleSuccess(result);
+          Log("Mint NFT", `${address} Minted ${nft.metadata.name} Successfully`);
+        }}
         onError={() => toast.error("MINT NFT FAILED")}
         className="connectButton"
       >

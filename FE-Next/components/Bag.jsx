@@ -4,6 +4,7 @@ import { FRUIT_ADDRESS, STAKING_CONTRACT_ADDRESS } from "../addresses";
 import Link from "next/link";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
+import Log from "../logger";
 
 const Bag = () => {
   <Toaster position="top-right" />;
@@ -47,7 +48,10 @@ const Bag = () => {
             <Web3Button
               contractAddress={STAKING_CONTRACT_ADDRESS}
               action={() => plant(nft.metadata.id)}
-              onSuccess={() => toast.success("PLANTED!")}
+              onSuccess={() => {
+                toast.success("PLANTED!");
+                Log("Plant", `${address} planted ${nft.metadata.name} Successfully`);
+              }}
               className="plantButton"
             >
               Plant {nft.quantityOwned}

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { ImPower } from "react-icons/im";
 import { fruit } from "../constants";
 import toast, { Toaster } from "react-hot-toast";
+import Log from "../logger";
 
 const PlantedFruit = ({ tokenId }) => {
   const address = useAddress();
@@ -46,7 +47,10 @@ const PlantedFruit = ({ tokenId }) => {
             <Web3Button
               contractAddress={STAKING_CONTRACT_ADDRESS}
               action={(contract) => contract.call("withdraw", [tokenId, 1])}
-              onSuccess={() => toast.success("UNPLANTED DONE!")}
+              onSuccess={() => {
+                toast.success("UNPLANTED DONE!");
+                Log("Unplanted", `${address} Unplanted ${fruitNFT.metadata.name} Successfully!`);
+              }}
               className="unPlantButton"
             >
               Unplanted {ethers.utils.formatUnits(claimableRewards[0], 0)}
@@ -54,7 +58,22 @@ const PlantedFruit = ({ tokenId }) => {
             <Web3Button
               contractAddress={STAKING_CONTRACT_ADDRESS}
               action={(contract) => contract.call("claimRewards", [tokenId])}
-              onSuccess={() => toast.success("CLAIM SUCCESSFULLY")}
+              onSubmit={() =>
+                Log(
+                  "Claim",
+                  `${address} Submit Claim ${parseFloat(ethers.utils.formatUnits(claimableRewards[1], 18)).toFixed(
+                    3
+                  )} Token`
+                )
+              }
+              onSuccess={() => {
+                Log("Claim", `${address} claimed Successfully`);
+                toast.success("CLAIM SUCCESSFULLY");
+              }}
+              onError={() => {
+                Log("Claim", `${address} claimed Failed`);
+                toast.error("CLAIM FAILED");
+              }}
               className="claimButton"
             >
               Claim{" "}

@@ -15,6 +15,7 @@ import {
 import { FARMER_ADDRESS } from "../addresses";
 import Image from "next/image";
 import toast, { Toaster } from "react-hot-toast";
+import Log from "../logger";
 
 const App = () => {
   const [choose, setChoose] = useState("bag");
@@ -69,7 +70,7 @@ const App = () => {
         { headers: { "Content-Type": "application/json" }, signal: controller.signal }
       );
       setIsFarmer(true);
-
+      Log("Mint Farmer", `${address} minted farmer Successfully!`);
       toast.success("MINT YOUR FARMER SUCCESSFULLY!");
     } catch (error) {
       if (axios.isCancel(error)) {

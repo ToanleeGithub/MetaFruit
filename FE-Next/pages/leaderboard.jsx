@@ -4,6 +4,7 @@ import axios from "axios";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import { ImPower } from "react-icons/im";
 import { useAddress } from "@thirdweb-dev/react";
+import Log from "../logger";
 
 const Leaderboard = () => {
   const address = useAddress();
@@ -45,6 +46,7 @@ const Leaderboard = () => {
       });
       alert(response.data.message);
       setName("");
+      Log("Name", `${address} changed to [${name}]`);
     } catch (error) {
       console.error(error);
     }
