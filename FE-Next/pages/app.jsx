@@ -95,8 +95,8 @@ const App = () => {
                 width: 300,
                 height: 300,
               },
-              title: "WELCOME TO METAFRUIT",
-              subtitle: "YOUR FUTURE IS HERE",
+              title: "WELCOME TO META",
+              subtitle: "THE FUTURE OF FRUIT",
             }}
             modalTitleIconUrl={
               "https://e31dabcdf3218024921ae9071ebaa065.ipfscdn.io/ipfs/bafybeiapl6kix5al3jpz3d7vssqupkfemxsbxthqh2zbhzthnl25bpsgxm/2.webp"
