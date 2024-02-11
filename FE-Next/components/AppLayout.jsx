@@ -52,7 +52,24 @@ const AppLayout = ({ children }) => {
           <GiFruitBowl className="text-3xl text-white" />
         </div>
 
-        <ConnectWallet />
+        <ConnectWallet
+          theme={"dark"}
+          btnTitle={"Connect Wallet"}
+          modalTitle={"Connect Wallet"}
+          modalSize={"wide"}
+          welcomeScreen={{
+            img: {
+              src: "https://e31dabcdf3218024921ae9071ebaa065.ipfscdn.io/ipfs/bafybeiewf77dbpwnan6wpkfc5xhmhbogsmdl6qg6ed5xym2a5wgfbeuaxm/9.webp",
+              width: 300,
+              height: 300,
+            },
+            title: "WELCOME TO METAFRUIT",
+            subtitle: "YOUR FUTURE IS HERE",
+          }}
+          modalTitleIconUrl={
+            "https://e31dabcdf3218024921ae9071ebaa065.ipfscdn.io/ipfs/bafybeiapl6kix5al3jpz3d7vssqupkfemxsbxthqh2zbhzthnl25bpsgxm/2.webp"
+          }
+        />
       </motion.div>
 
       <div className="py-8 innerWidth flex md:flex-row flex-col z-[10]">

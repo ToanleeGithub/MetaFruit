@@ -1,4 +1,4 @@
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebProvider, metamaskWallet, walletConnect } from "@thirdweb-dev/react";
 import Head from "next/head";
 import "../styles/globals.css";
 import { Binance, Mumbai } from "@thirdweb-dev/chains";
@@ -10,7 +10,11 @@ import { Binance, Mumbai } from "@thirdweb-dev/chains";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThirdwebProvider activeChain={Binance} clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}>
+    <ThirdwebProvider
+      activeChain={Binance}
+      clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
+      supportedWallets={[metamaskWallet(), walletConnect()]}
+    >
       <Head>
         <title>Meta Fruit</title>
         <link rel="icon" href="/orange.ico" />

@@ -133,4 +133,9 @@ export const fruit = [
     name: "Meta Starfruit",
     farmSpeed: 61.3,
   },
+  {
+    id: 9,
+    name: "Mera Mera",
+    farmSpeed: 71.5,
+  },
 ];
