@@ -14,7 +14,7 @@ const Farm = () => {
   if (isLoading) return <Image src="/loader.svg" width={200} height={200} alt="loading" />;
 
   return (
-    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 max-sm:w-[200px] max-sm:h-[200px]">
+    <div className="flex flex-wrap justify-center gap-8 ">
       {plantedFruit && plantedFruit[0]?.map((fruit, index) => <PlantedFruit key={index} tokenId={fruit.toNumber()} />)}
     </div>
   );

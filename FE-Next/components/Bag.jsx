@@ -39,10 +39,10 @@ const Bag = () => {
     );
 
   return (
-    <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3">
+    <div className="flex flex-wrap justify-center gap-8">
       {ownedFruitNFTs?.map((nft, index) => (
         <div key={index}>
-          <MediaRenderer src={nft.metadata.image} width="200px" height="200px" className="rounded-[20px] mx-auto" />
+          <MediaRenderer src={nft.metadata.image} width="250px" height="250px" className="rounded-[20px] mx-auto" />
           <p className="text-center text-white">{nft.metadata.name}</p>
           <div className="flex justify-center">
             <Web3Button

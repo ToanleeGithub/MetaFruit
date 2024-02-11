@@ -31,12 +31,12 @@ const NFT = ({ nft }) => {
           src={nft.metadata.image}
           alt="NFT Image"
           key={nft.id}
-          width="300px"
-          height="300px"
+          width="250px"
+          height="250px"
           className="rounded-xl"
         />
       </motion.div>
-      <p className="absolute bottom-[28%] text-center text-[24px] text-white">{nft.metadata.name}</p>
+      <p className=" absolute bottom-[29%] text-center sm:text-[24px] text-[16px] text-white">{nft.metadata.name}</p>
 
       {!isLoading && data ? (
         <p className="text-lg text-center text-yellow-500">

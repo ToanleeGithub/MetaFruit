@@ -134,7 +134,7 @@ const App = () => {
       <Toaster position="top-right" />
       <div className="flex sm:flex-row flex-col">
         {ownedFarmerNFT && (
-          <div className="flex lg:w-[300px] w-[200px] lg:h-[300px] h-[200px] flex-col items-center">
+          <div className="flex lg:w-[300px] w-[200px] lg:h-[300px] sm:h-[200px] h-[100px] flex-col items-center">
             <p className="text-[40px] text-white">FARMER</p>
             <MediaRenderer
               src={ownedFarmerNFT[0]?.metadata.image}

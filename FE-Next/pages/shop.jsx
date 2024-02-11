@@ -27,7 +27,7 @@ const Shop = () => {
     );
   return (
     <AppLayout>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-3">
+      <div className="flex flex-wrap gap-8 justify-center">
         {fruitNFTs?.map((nft, index) => (
           <NFT key={index} nft={nft} />
         ))}

@@ -55,13 +55,13 @@ const AppLayout = ({ children }) => {
         <ConnectWallet />
       </motion.div>
 
-      <div className="py-8 innerWidth flex z-[10]">
-        <div className="w-[70px] h-[350px] rounded-[20px] bg-slate-700 flex flex-col px-4 py-8 items-center gap-8">
+      <div className="py-8 innerWidth flex md:flex-row flex-col z-[10]">
+        <div className="md:w-[70px] w-[300px] md:h-[350px] h-[70px] rounded-[20px] bg-slate-700 flex md:flex-col px-4 py-8 items-center max-md:justify-center gap-8 mb-5">
           <Link href="/app" onClick={() => handleActive("app")}>
             <IoAppsSharp
               className={`${
                 active === "app" ? "text-yellow-500" : "text-white"
-              } text-[40px] "text-white" cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
+              } md:text-[40px] text-[30px] cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
             />
           </Link>
 
@@ -69,7 +69,7 @@ const AppLayout = ({ children }) => {
             <AiOutlineShop
               className={`${
                 active === "shop" ? "text-yellow-500" : "text-white"
-              } text-[40px] "text-white" cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
+              } md:text-[40px] text-[30px] cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
             />
           </Link>
 
@@ -77,7 +77,7 @@ const AppLayout = ({ children }) => {
             <MdLeaderboard
               className={`${
                 active === "leaderboard" ? "text-yellow-500" : "text-white"
-              } text-[40px] "text-white" cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
+              } md:text-[40px] text-[30px] cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
             />
           </Link>
 
@@ -86,7 +86,7 @@ const AppLayout = ({ children }) => {
               <MdEmojiEvents
                 className={`${
                   active === "event" ? "text-yellow-500" : "text-white"
-                } text-[40px] "text-white" cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
+                } md:text-[40px] text-[30px] cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
               />
               <p className="text-[12px] text-center text-white">EVENT</p>
             </motion.div>

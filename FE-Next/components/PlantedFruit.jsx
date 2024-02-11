@@ -33,8 +33,8 @@ const PlantedFruit = ({ tokenId }) => {
         <div className="relative flex flex-col gap-2">
           <MediaRenderer
             src={fruitNFT.metadata.image}
-            width="100%"
-            height="100%"
+            width="250px"
+            height="250px"
             alt="fruitNft"
             className="rounded-[20px]"
           />
