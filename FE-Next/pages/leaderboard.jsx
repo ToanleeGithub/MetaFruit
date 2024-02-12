@@ -5,6 +5,7 @@ import { FaAngleDoubleRight } from "react-icons/fa";
 import { ImPower } from "react-icons/im";
 import { useAddress } from "@thirdweb-dev/react";
 import Log from "../logger";
+import { motion } from "framer-motion";
 
 const Leaderboard = () => {
   const address = useAddress();
@@ -66,10 +67,12 @@ const Leaderboard = () => {
             maxLength={12}
             onChange={(e) => setName(e.target.value)}
           />
-          <FaAngleDoubleRight
-            className="text-3xl rounded-[5px] font-bold text-yellow-500 bg-white p-1 box-content cursor-pointer"
-            onClick={() => handleChangeName()}
-          />
+          <motion.div animate={{ x: [0, 10, 0], transition: { duration: 1, repeat: Infinity } }}>
+            <FaAngleDoubleRight
+              className="text-3xl rounded-[5px] font-bold text-yellow-500 bg-white p-1 box-content cursor-pointer"
+              onClick={() => handleChangeName()}
+            />
+          </motion.div>
         </div>
 
         {data?.map((item, index) => (
