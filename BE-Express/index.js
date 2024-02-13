@@ -17,6 +17,9 @@ const priceArray = [
 
 db();
 
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/views"));
+
 app.use(
   cors({
     // origin: "http://localhost:3000",
@@ -156,6 +159,47 @@ app.post("/api/log", (req, res) => {
     }
     res.send("Log written successfully");
   });
+});
+
+app.get("/kol/:name", async (req, res) => {
+  const kolName = req.params.name;
+  const ipAddress = req.ip;
+  const timestamp = new Date();
+
+  const existingVisit = await model.visitModel.findOne({ kolName, ipAddress });
+
+  if (!existingVisit) {
+    const newVisit = new model.visitModel({ kolName, ipAddress, timestamp });
+    await newVisit.save();
+    console.log(`New visit logged for ${kolName} from IP: ${ipAddress}`);
+  } else {
+    console.log(
+      `Repeat visit from IP: ${ipAddress} for ${kolName} - not logged.`
+    );
+  }
+
+  res.redirect("https://metafruit.pro");
+});
+
+app.get("/dashboard/kol", async (req, res) => {
+  try {
+    const visits = await model.visitModel.aggregate([
+      {
+        $group: {
+          _id: "$kolName",
+          totalVisits: { $count: {} },
+        },
+      },
+      {
+        $sort: { totalVisits: -1 },
+      },
+    ]);
+
+    res.render("dashboard", { visits });
+  } catch (error) {
+    console.error("Error fetching KOL visit data:", error);
+    res.status(500).send("An error occurred while fetching KOL visit data.");
+  }
 });
 
 app.listen(port, () => {

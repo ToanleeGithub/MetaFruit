@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>KOL Dashboard</title>
+  </head>
+  <body>
+    <h1>KOL Visit Data</h1>
+    <ul>
+      <% visits.forEach(function(visit) { %>
+      <h2><%= visit._id %>: <%= visit.totalVisits %> visits</h2>
+      <% }); %>
+    </ul>
+  </body>
+</html>

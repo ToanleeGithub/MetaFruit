@@ -37,7 +37,14 @@ const hashSchema = new mongoose.Schema({
   },
 });
 
+const visitSchema = new mongoose.Schema({
+  kolName: String,
+  ipAddress: String,
+  timestamp: Date,
+});
+
 const userModel = mongoose.model("User", userSchema);
 const hashModel = mongoose.model("Hash", hashSchema);
+const visitModel = mongoose.model("Visit", visitSchema);
 
-module.exports = { userModel, hashModel };
+module.exports = { userModel, hashModel, visitModel };
