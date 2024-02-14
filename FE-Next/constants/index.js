@@ -167,3 +167,34 @@ export const dev = [
     img: "/metadev5.webp",
   },
 ];
+
+export const superPowerNft = [
+  {
+    name: "Kaido Fruit",
+    img: "/kaidofruit.webp",
+    price: "3 BNB",
+    farmSpeed: "220 FRUIT/H",
+    top: 1,
+  },
+  {
+    name: "Yamate Fruit",
+    img: "/yamatefruit.webp",
+    price: "2 BNB",
+    farmSpeed: "150 FRUIT/H",
+    top: 2,
+  },
+  {
+    name: "Mera Mera",
+    img: "/meramerafruit.webp",
+    price: "27500 FRUIT",
+    farmSpeed: "75.1 FRUIT/H",
+    top: 3,
+  },
+  {
+    name: "Meta Apple",
+    img: "/applefruit.webp",
+    price: "5000 FRUIT",
+    farmSpeed: "8.3 FRUIT/H",
+    top: "4 - 7",
+  },
+];
