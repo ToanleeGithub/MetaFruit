@@ -15,6 +15,7 @@ import NFT from "./NFT";
 import Roadmap from "./Roadmap";
 import Footer from "./Footer";
 import Dev from "./Dev";
+import Backer from "./Backer";
 
 export {
   Button,
@@ -35,4 +36,5 @@ export {
   Roadmap,
   Footer,
   Dev,
+  Backer,
 };

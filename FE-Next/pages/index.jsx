@@ -1,6 +1,6 @@
 import { ConnectWallet } from "@thirdweb-dev/react";
 import Image from "next/image";
-import { Navbar, Hero, About, Explore, GetStarted, Roadmap, Footer, Dev } from "../components";
+import { Navbar, Hero, About, Explore, GetStarted, Roadmap, Footer, Dev, Backer } from "../components";
 
 export default function Home() {
   return (
@@ -11,6 +11,7 @@ export default function Home() {
       <Explore />
       <GetStarted />
       <Dev />
+      <Backer />
       <Roadmap />
       <Footer />
     </div>
