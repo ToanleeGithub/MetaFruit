@@ -128,7 +128,7 @@ const Event = () => {
                     className="absolute w-full h-full rounded-xl"
                     style={{
                       backfaceVisibility: "hidden",
-                      transform: "rotateY(190deg)", // Quay mặt này để nó ở phía sau
+                      transform: "rotateY(180deg)", // Quay mặt này để nó ở phía sau
                     }}
                   >
                     <div className="w-[300px] h-[300px] bg-white rounded-xl p-5">
