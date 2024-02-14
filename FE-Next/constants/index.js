@@ -139,3 +139,31 @@ export const fruit = [
     farmSpeed: 71.5,
   },
 ];
+
+export const dev = [
+  {
+    name: "Lin Feng (林峰)",
+    position: "CEO",
+    img: "/metadev1.webp",
+  },
+  {
+    name: "Zhou Jie (周杰)",
+    position: "CTO",
+    img: "/metadev2.png",
+  },
+  {
+    name: "Huang Lei (黄磊)",
+    position: "Blockchain Dev",
+    img: "/metadev3.webp",
+  },
+  {
+    name: "Zhao Wei (赵薇)",
+    position: "Creative Director ",
+    img: "/metadev4.png",
+  },
+  {
+    name: "Sun Lin (孙琳)",
+    position: "Marketing Director",
+    img: "/metadev5.webp",
+  },
+];
