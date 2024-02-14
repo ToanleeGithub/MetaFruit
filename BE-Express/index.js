@@ -16,17 +16,23 @@ const priceArray = [
   100000,
 ];
 
+const whitelist = ["https://metafruit.pro", "https://www.metafruit.pro"];
+const corsOption = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed CORS"));
+    }
+  },
+};
+
 db();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
-app.use(
-  cors({
-    // origin: "http://localhost:3000",
-    origin: ["https://metafruit.pro", "https://www.metafruit.pro"],
-  })
-);
+app.use(cors(corsOption));
 app.use(express.json());
 
 app.get("/", (req, res) => {
