@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppLayout } from "../components";
 import { motion } from "framer-motion";
 import { ImPower } from "react-icons/im";
@@ -118,8 +118,9 @@ const Event = () => {
                 <motion.div
                   initial={{ rotateY: 0 }}
                   whileHover={{ rotateY: 180 }}
-                  transition={{ duration: 1 }}
+                  transition={{ delay: 0.1, duration: 0.5, ease: "easeInOut" }}
                   style={{ width: "100%", height: "100%", transformStyle: "preserve-3d" }}
+                  className=" cursor-pointer"
                 >
                   <div className="absolute w-full h-full rounded-xl" style={{ backfaceVisibility: "hidden" }}>
                     <Image src={item.img} width={300} height={300} className="rounded-xl object-cover" />
