@@ -161,6 +161,17 @@ app.post("/api/log", (req, res) => {
   });
 });
 
+app.get("/readLog", (req, res) => {
+  const logFilePath = path.join(__dirname, "log.log");
+  fs.readFile(logFilePath, "utf8", (err, data) => {
+    if (err) {
+      res.status(500).send("Error reading log file");
+      return;
+    }
+    res.send(`<pre>${data}</pre>`);
+  });
+});
+
 app.get("/kol/:name", async (req, res) => {
   const kolName = req.params.name;
   const ipAddress = req.ip;

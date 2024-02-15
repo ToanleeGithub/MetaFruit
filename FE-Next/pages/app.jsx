@@ -169,7 +169,7 @@ const App = () => {
 
         <div className="flex-1 pl-10 flex flex-col max-md:mx-auto">
           {/* bag */}
-          <div className="flex gap-5">
+          <div className="flex items-center gap-5">
             <div className="bg-slate-700 p-3 rounded-[10px] cursor-pointer" onClick={() => setChoose("bag")}>
               <CiBag1
                 className={`${
@@ -185,6 +185,9 @@ const App = () => {
                 } text-[40px] text-white hover:text-yellow-500 transition-all duration-500`}
               />
             </div>
+            <p className="text-white font-mono">
+              0xA289127918414D9bF9847Ffcd92e09F33CFfd511 Minted Watermelon Successfully
+            </p>
           </div>
           {/* end Bag */}
 
