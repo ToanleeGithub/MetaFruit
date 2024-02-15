@@ -13,6 +13,7 @@ const NFT = ({ nft }) => {
   const address = useAddress();
   const { contract } = useContract(FRUIT_ADDRESS);
   const { data, isLoading } = useActiveClaimCondition(contract, nft.metadata.id);
+  console.log(nft);
 
   const handleSuccess = async (result) => {
     try {
@@ -36,6 +37,20 @@ const NFT = ({ nft }) => {
           className="rounded-xl"
         />
       </motion.div>
+      <div className="absolute top-0 left-0">
+        <div className="flex justify-center items-center relative" style={{ width: "70px", height: "70px" }}>
+          <motion.div
+            animate={{
+              rotate: 360,
+              transition: { duration: 10, repeat: Infinity, repeatType: "loop", ease: "linear" },
+            }}
+            className="absolute"
+          >
+            <Image src="/img-circle.png" width={70} height={70} className="grayscale" />
+          </motion.div>
+          <p className="absolute text-yellow-500 text-xl z-10">{nft.supply}</p>
+        </div>
+      </div>
       <p className=" absolute bottom-[29%] text-center sm:text-[24px] text-[16px] text-white">{nft.metadata.name}</p>
 
       {!isLoading && data ? (
