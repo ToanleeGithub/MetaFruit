@@ -16,6 +16,7 @@ import Roadmap from "./Roadmap";
 import Footer from "./Footer";
 import Dev from "./Dev";
 import Backer from "./Backer";
+import CountdownTimer from "./Countdown";
 
 export {
   Button,
@@ -37,4 +38,5 @@ export {
   Footer,
   Dev,
   Backer,
+  CountdownTimer,
 };
