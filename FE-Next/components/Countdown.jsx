@@ -42,7 +42,7 @@ const CountdownTimer = ({ targetDate }) => {
     );
   });
 
-  return <div className="text-red-500">{timerComponents.length ? timerComponents : <span>Time's up!</span>}</div>;
+  return <div className="text-yellow-500">{timerComponents.length ? timerComponents : <span>Time's up!</span>}</div>;
 };
 
 export default CountdownTimer;

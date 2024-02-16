@@ -24,6 +24,9 @@ const Navbar = () => {
           <Link href="/app" onClick={() => localStorage.setItem("activePage", "app")}>
             <Button>PLAY</Button>
           </Link>
+          <Link href="https://metafruit.gitbook.io/metafruit-2/" target="_blank">
+            <Button>DOCS</Button>
+          </Link>
 
           <div onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)} className="relative">
             <p className="text-sky-500 text-3xl hover:text-white hover:scale-110 transition-all">
