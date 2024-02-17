@@ -13,7 +13,6 @@ const NFT = ({ nft }) => {
   const address = useAddress();
   const { contract } = useContract(FRUIT_ADDRESS);
   const { data, isLoading } = useActiveClaimCondition(contract, nft.metadata.id);
-  console.log(nft);
 
   const handleSuccess = async (result) => {
     try {

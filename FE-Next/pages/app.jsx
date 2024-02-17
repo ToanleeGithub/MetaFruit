@@ -185,7 +185,7 @@ const App = () => {
                 } text-[40px] text-white hover:text-yellow-500 transition-all duration-500`}
               />
             </div>
-            <div className="text-white">
+            <div className="text-white md:block hidden">
               <p className="font-mono font-bold">The price of the NFT will increase by 20% every two weeks.</p>
               <CountdownTimer targetDate="2024/3/4" />
             </div>
