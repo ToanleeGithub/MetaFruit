@@ -58,7 +58,7 @@ const Leaderboard = () => {
       <div className="flex flex-col items-center md:gap-5 gap-3">
         <h1 className="relative text-center md:text-6xl text-3xl text-yellow-500">LEADER BOARD</h1>
         <div className="absolute w-1/4 h-[300px] gradient-02 z-[-10]" />
-        <div className="flex justify-center items-center gap-5 z-[10]">
+        {/* <div className="flex justify-center items-center gap-5 z-[10]">
           <input
             type="text"
             value={name}
@@ -73,15 +73,15 @@ const Leaderboard = () => {
               onClick={() => handleChangeName()}
             />
           </motion.div>
-        </div>
+        </div> */}
 
         {data?.map((item, index) => (
           <div key={index} className="flex items-center lg:w-1/2 w-full mx-auto">
             <h1 className="text-white min-w-10 md:text-2xl text-lg">{index + 1}</h1>
             <div className="md:min-w-[500px] min-w-[100px]">
               <div className="flex items-center gap-2">
-                <h1 className="text-white md:text-2xl text-lg">{item.nickName} -</h1>
-                <p className="text-lg text-yellow-500 font-mono">{item.refCode}</p>
+                {/* <h1 className="text-white md:text-2xl text-lg">{item.nickName} -</h1> */}
+                <p className="text-lg text-yellow-500 font-mono">code: {item.refCode}</p>
               </div>
               <h1 className="text-white md:block hidden">{item.address}</h1>
             </div>

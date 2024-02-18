@@ -24,6 +24,7 @@ app.set("views", path.join(__dirname, "/views"));
 app.use(
   cors({
     origin: "https://metafruit.pro",
+    // origin: "http://localhost:3000",
   })
 );
 app.use(express.json());
