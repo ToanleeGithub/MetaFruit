@@ -20,7 +20,7 @@ const Navbar = () => {
           <h1 className="sm:block hidden md:text-[24px] text-[16px] text-white">CRYPTO GAME</h1>
         </div>
 
-        <div className="flex gap-3 items-center">
+        <div className="flex gap-3 items-center z-10">
           <Link href="/app" onClick={() => localStorage.setItem("activePage", "app")}>
             <Button>PLAY</Button>
           </Link>
