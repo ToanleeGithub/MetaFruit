@@ -139,6 +139,7 @@ const App = () => {
             contractAddress={FARMER_ADDRESS}
             action={async (contract) => await contract.erc1155.claim(0, 1)}
             onSuccess={(result) => handleSuccess(result, code)}
+            onError={() => toast.error("Error: Check your BNB balance")}
             className="connectButton"
           >
             MINT YOUR FARMER
