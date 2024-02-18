@@ -18,7 +18,16 @@ const Shop = () => {
     );
   return (
     <AppLayout>
-      <div className="flex flex-wrap gap-8 justify-center">
+      <button>
+        <a
+          href="https://pancakeswap.finance/swap?outputCurrency=0xc292A5A91f3296b8F081B0f2B1404401Ca4300D2&chain=bsc"
+          target="_blank"
+          className="font-bold font-mono bg-yellow-500 px-4 py-2 my-2 rounded-lg hover:opacity-80 transition-all duration-300"
+        >
+          BUY $FRUIT ON PANCAKESWAP
+        </a>
+      </button>
+      <div className="flex flex-wrap gap-8 justify-center mt-5">
         {fruitNFTs?.map((nft, index) => (
           <NFT key={index} nft={nft} />
         ))}
