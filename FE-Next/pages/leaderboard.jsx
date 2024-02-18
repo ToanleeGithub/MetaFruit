@@ -39,19 +39,19 @@ const Leaderboard = () => {
     };
   }, [address]);
 
-  const handleChangeName = async () => {
-    try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/changeName`, {
-        address,
-        name,
-      });
-      alert(response.data.message);
-      setName("");
-      Log("Name", `${address} changed to [${name}]`);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleChangeName = async () => {
+  //   try {
+  //     const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/changeName`, {
+  //       address,
+  //       name,
+  //     });
+  //     alert(response.data.message);
+  //     setName("");
+  //     Log("Name", `${address} changed to [${name}]`);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
   return (
     <AppLayout>

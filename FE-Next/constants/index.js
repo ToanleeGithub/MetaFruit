@@ -148,6 +148,11 @@ export const fruit = [
     name: "Kaido Fruit",
     farmSpeed: 220,
   },
+  {
+    id: 12,
+    name: "Meta Milk",
+    farmSpeed: 1,
+  },
 ];
 
 export const dev = [
