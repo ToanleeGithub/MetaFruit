@@ -106,32 +106,31 @@ app.post("/mintNFT", async (req, res) => {
   }
 });
 
-app.get("/leaderboard", async (req, res) => {
+app.post("/leaderboard", async (req, res) => {
   try {
     const users = await model.userModel.find();
     let renderUsers = users.map((user) => user.toObject());
     renderUsers.sort((a, b) => b.tokenFromRef - a.tokenFromRef);
 
-    res.json(renderUsers);
+    // Kiểm tra xem có query parameter 'address' được cung cấp không
+    const specificAddress = req.body.address;
+
+    let specificUser = null;
+    if (specificAddress) {
+      // Tìm người dùng cụ thể dựa vào 'address'
+      specificUser = renderUsers.find(
+        (user) => user.address === specificAddress
+      );
+    }
+
+    // Trả về cả danh sách người dùng và người dùng cụ thể (nếu tìm thấy)
+    res.json({
+      allUsers: renderUsers,
+      specificUser: specificUser || "User not found",
+    });
   } catch (error) {
     console.error(error);
-  }
-});
-
-app.post("/changename", async (req, res) => {
-  try {
-    const { address, name } = req.body;
-
-    const user = await model.userModel.findOne({ address });
-    if (!user) return;
-
-    user.nickName = name;
-
-    await user.save();
-
-    res.json({ message: "Name has changed" });
-  } catch (error) {
-    console.error(error);
+    res.status(500).send("Internal Server Error");
   }
 });
 
