@@ -10,6 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Log from "../logger";
 
 const NFT = ({ nft }) => {
+  console.log(nft.metadata.id);
   const address = useAddress();
   const { contract } = useContract(FRUIT_ADDRESS);
   const { data, isLoading } = useActiveClaimCondition(contract, nft.metadata.id);
@@ -23,7 +24,9 @@ const NFT = ({ nft }) => {
     }
   };
 
-  return (
+  const nftShopId = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "13"];
+
+  return nftShopId.includes(nft.metadata.id) ? (
     <div className="relative flex flex-col justify-center items-center gap-2">
       <Toaster position="top-right" />
       <motion.div whileHover={{ scale: 1.02, transition: { duration: 0.3 } }} className="md:w-[250px] w-[200px]">
@@ -68,7 +71,7 @@ const NFT = ({ nft }) => {
         </div>
       </Web3Button>
     </div>
-  );
+  ) : null;
 };
 
 export default NFT;
