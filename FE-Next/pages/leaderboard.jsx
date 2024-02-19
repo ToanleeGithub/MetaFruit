@@ -47,10 +47,10 @@ const Leaderboard = () => {
         <div className="text-white text-xl flex justify-center items-center gap-5">
           <h1>YOUR POWER:</h1>
           <h1 className="flex justify-center items-center gap-1">
-            <ImPower className="text-yellow-500" /> {data.specificUser.tokenFromRef}
+            <ImPower className="text-yellow-500" /> {data?.specificUser?.tokenFromRef}
           </h1>
         </div>
-        {data.allUsers.map((item, index) => (
+        {data?.allUsers?.map((item, index) => (
           <div key={index} className="flex items-center lg:w-1/2 w-full mx-auto">
             <h1 className="text-white min-w-10 md:text-2xl text-lg">{index + 1}</h1>
             <div className="md:min-w-[500px] min-w-[100px]">
