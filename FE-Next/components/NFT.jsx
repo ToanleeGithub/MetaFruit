@@ -26,15 +26,8 @@ const NFT = ({ nft }) => {
   return (
     <div className="relative flex flex-col justify-center items-center gap-2">
       <Toaster position="top-right" />
-      <motion.div whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}>
-        <MediaRenderer
-          src={nft.metadata.image}
-          alt="NFT Image"
-          key={nft.id}
-          width="250px"
-          height="250px"
-          className="rounded-xl"
-        />
+      <motion.div whileHover={{ scale: 1.02, transition: { duration: 0.3 } }} className="md:w-[250px] w-[200px]">
+        <Image src={nft.metadata.image} alt="NFT Image" key={nft.id} width={250} height={250} className="rounded-xl" />
       </motion.div>
       <div className="absolute top-0 left-0">
         <div className="flex justify-center items-center relative" style={{ width: "70px", height: "70px" }}>

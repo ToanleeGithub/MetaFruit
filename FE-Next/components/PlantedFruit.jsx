@@ -6,6 +6,7 @@ import { ImPower } from "react-icons/im";
 import { fruit } from "../constants";
 import toast, { Toaster } from "react-hot-toast";
 import Log from "../logger";
+import Image from "next/image";
 
 const PlantedFruit = ({ tokenId }) => {
   const address = useAddress();
@@ -31,13 +32,9 @@ const PlantedFruit = ({ tokenId }) => {
     <div>
       {fruitNFT && claimableRewards && (
         <div className="relative flex flex-col gap-2">
-          <MediaRenderer
-            src={fruitNFT.metadata.image}
-            width="250px"
-            height="250px"
-            alt="fruitNft"
-            className="rounded-[20px]"
-          />
+          <div className="md:w-[250px] w-[200px]">
+            <Image src={fruitNFT.metadata.image} width={250} height={250} alt="fruitNft" className="rounded-[20px]" />
+          </div>
           <div className="absolute top-[20px] left-[20px] text-center text-white flex flex-col justify-center items-center">
             <ImPower />
             <p>{fruit[tokenId]?.farmSpeed}</p>

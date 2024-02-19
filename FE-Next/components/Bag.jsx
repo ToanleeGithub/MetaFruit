@@ -42,7 +42,9 @@ const Bag = () => {
     <div className="flex flex-wrap justify-center gap-8">
       {ownedFruitNFTs?.map((nft, index) => (
         <div key={index}>
-          <MediaRenderer src={nft.metadata.image} width="250px" height="250px" className="rounded-[20px] mx-auto" />
+          <div className="md:w-[250px] w-[200px]">
+            <Image src={nft.metadata.image} width={250} height={250} className="rounded-[20px] mx-auto" />
+          </div>
           <p className="text-center text-white">{nft.metadata.name}</p>
           <div className="flex justify-center">
             <Web3Button

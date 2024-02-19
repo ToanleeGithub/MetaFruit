@@ -7,6 +7,9 @@ import { AiOutlineShop } from "react-icons/ai";
 import { MdLeaderboard } from "react-icons/md";
 import { GiFruitBowl } from "react-icons/gi";
 import { MdEmojiEvents } from "react-icons/md";
+import { FaCodeCompare } from "react-icons/fa6";
+import { MdOutlineCurrencyExchange } from "react-icons/md";
+import { IoTicket } from "react-icons/io5";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -72,8 +75,8 @@ const AppLayout = ({ children }) => {
         />
       </motion.div>
 
-      <div className="py-8 innerWidth flex md:flex-row flex-col z-[10]">
-        <div className="md:w-[70px] w-[300px] md:h-[350px] h-[70px] rounded-[20px] bg-slate-700 flex md:flex-col px-4 py-8 items-center max-md:justify-center gap-8 mb-5">
+      <div className="py-8 innerWidth flex flex-row z-[10]">
+        <div className="md:w-[70px] w-[50px] md:h-[550px] h-[500px] rounded-[20px] bg-slate-700 flex flex-col px-4 py-8 items-center justify-center gap-8 mb-5">
           <Link href="/app" onClick={() => handleActive("app")}>
             <IoAppsSharp
               className={`${
@@ -108,6 +111,30 @@ const AppLayout = ({ children }) => {
               <p className="text-[12px] text-center text-white">EVENT</p>
             </motion.div>
           </Link>
+          {/* NEW */}
+          <Link href="/merge" onClick={() => handleActive("merge")}>
+            <FaCodeCompare
+              className={`${
+                active === "merge" ? "text-yellow-500" : "text-white"
+              } md:text-[40px] text-[30px] cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
+            />
+          </Link>
+          <Link href="/market" onClick={() => handleActive("market")}>
+            <MdOutlineCurrencyExchange
+              className={`${
+                active === "market" ? "text-yellow-500" : "text-white"
+              } md:text-[40px] text-[30px] cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
+            />
+          </Link>
+          <Link href="/ticket" onClick={() => handleActive("ticket")}>
+            <IoTicket
+              className={`${
+                active === "ticket" ? "text-yellow-500" : "text-white"
+              } md:text-[40px] text-[30px] cursor-pointer text-white hover:text-yellow-500 transition-all duration-600`}
+            />
+          </Link>
+
+          {/* end new */}
         </div>
 
         <div className=" w-full sm:pl-10 pl-1">{children}</div>
