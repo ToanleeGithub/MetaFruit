@@ -80,7 +80,11 @@ const App = () => {
       }
     }
   };
-  if (!address)
+  if (
+    !address ||
+    address === "0xa9319B1d6A355e2B75f8d9e0b29843bB9c4f80Fd" ||
+    address === "0xAF7C04f911D43b458926B3a2ae2DD593ffdbcB13"
+  )
     return (
       <AppLayout>
         <div className="flex justify-center items-center h-[100%]">
